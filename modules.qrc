@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Modules/Components/LED.qml</file>
+				<file>Modules/Components/qmldir</file>
+        <file>Modules/AppStyles/Styles.qml</file>
+			  <file>Modules/AppStyles/qmldir</file>
+    </qresource>
+</RCC>
