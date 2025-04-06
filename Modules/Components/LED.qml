@@ -1,47 +1,22 @@
 import QtQuick 2.15
 import AppStyles 1.0
 import QtQuick.Layouts
-import QtQuick.Controls
 
-Item {
+
+Rectangle {
   id: control
 
-  property alias width: led.width
-  property alias height: led.height
-  property alias color: led.color
-  property alias buttonText: txt.text
-  property alias labelText: txt.text
+  property alias labelText: label.text
 
-  ColumnLayout {
-    id: layout
+  Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+  height: 100
+  width: 100
+  radius: 0.5*width
+  border{ width: 1; color: Styles.foreground.high }
+  opacity: button.checked ? 1.0 : 0.8
 
-    Rectangle {
-      id: led
-
-      Layout.alignment: Qt.AlignHCenter
-      height: 100
-      width: 100
-      color: "green"
-      radius: 0.5*led.width
-      border{ width: 1; color: Styles.foreground.high }
-
-      Text {
-        id: label
-        anchors.centerIn: parent
-
-      }
-    }
-
-    Button {
-      id: button
-
-      Layout.alignment: Qt.AlignHCenter
-
-    }
+  Text {
+    id: label
+    anchors.centerIn: parent
   }
-
-
-
-
-
 }

@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
   engine.addImportPath("D:/Qt/QtProjects/PLCControl");
   engine.addImportPath("C:/Qt/QtProjects/PLCControl");
   engine.addImportPath("E:/Qt/QtProjects/PLCControl");
+  engine.addImportPath("/home/boroda/Qt/QtProjects/PLCControl");
   engine.addImportPath(":/Modules");
 
   QObject::connect(

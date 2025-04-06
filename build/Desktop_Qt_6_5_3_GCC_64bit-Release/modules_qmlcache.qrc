@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="Modules/Components/LED.qml">../../Modules/Components/LED.qml</file>
+        <file alias="Modules/Components/qmldir">../../Modules/Components/qmldir</file>
+        <file alias="Modules/AppStyles/Styles.qml">../../Modules/AppStyles/Styles.qml</file>
+        <file alias="Modules/AppStyles/qmldir">../../Modules/AppStyles/qmldir</file>
+    </qresource>
+</RCC>
