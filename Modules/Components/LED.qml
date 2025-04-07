@@ -8,12 +8,8 @@ Rectangle {
 
   property alias labelText: label.text
 
-  Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-  height: 100
-  width: 100
-  radius: 0.5*width
+  radius: implicitWidth / 2
   border{ width: 1; color: Styles.foreground.high }
-  opacity: button.checked ? 1.0 : 0.8
 
   Text {
     id: label

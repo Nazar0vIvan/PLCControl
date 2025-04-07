@@ -15,61 +15,92 @@ Window {
   color: Styles.background.dp00
 
   ColumnLayout {
-    id: mainlayout
+    id: mainLayout
 
     anchors.fill: parent
-    spacing: 50
 
-    GridLayout {
-      id: grid
+    Rectangle {
+      id: leds
 
-      columns: 3
-      rows: 2
-      columnSpacing: 20
-      rowSpacing: 20
+      Layout.fillWidth: true; Layout.fillHeight: true;
+      color: "transparent"
+      border{ width: 1; color: "red" }
 
-      LED {
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        color: "yellow"
-        labelText: "POWER"
-      }
-      LED {
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        labelText: "RUN"
-        color: "green"
-      }
-      LED {
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        color: "green"
-      }
-      LED {
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        color: "red"
-        width: 70; height: 70
-      }
-      LED {
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        color: "red"
-        width: 70; height: 70
-      }
-      LED {
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-        color: "red"
-        width: 70; height: 70
-      }
+      GridLayout {
+        id: grid
 
+        anchors.fill: parent
+        columns: 3
+        rows: 2
+//        columnSpacing: 20
+//        rowSpacing: 20
+
+        LED {
+          id: led_power
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          Layout.row: 0
+          Layout.column: 0
+          color: "yellow"
+          labelText: "POWER"
+          width: 100; height: 100
+        }
+        LED {
+          id: led_run
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          Layout.row: 0
+          Layout.column: 1
+          labelText: "RUN"
+          color: "green"
+          width: 100; height: 100
+        }
+        LED {
+          id: led_r1
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          Layout.row: 1
+          Layout.column: 0
+          color: "red"
+          labelText: "R1"
+          width: 70; height: 70
+        }
+        LED {
+          id: led_r2
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          color: "red"
+          Layout.row: 1
+          Layout.column: 1
+          labelText: "R2"
+          width: 70; height: 70
+        }
+        LED {
+          id: led_r3
+          Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+          Layout.row: 1
+          Layout.column: 2
+          color: "red"
+          labelText: "R3"
+          width: 70; height: 70
+        }
+      }
     }
 
-    RowLayout {
-      id: controlsLayout
-
-      Button {
-        text: "PLC OFF"
-      }
-      Button {
-        text: "VFD OFF"
-      }
+    Component.onCompleted: {
+        grid.forceLayout(); // Force layout update when components are ready
     }
-    Item {Layout.fillHeight: true}
+
+//    GroupBox {
+//      id: control
+
+//     // Layout.fillWidth: true; Layout.fillHeight: true;
+//      ColumnLayout {
+//        id: controlLayout
+
+//        anchors.fill: parent
+
+//        Button {
+//          text: "Connect"
+//        }
+//      }
+//    }
+
   }
 }
