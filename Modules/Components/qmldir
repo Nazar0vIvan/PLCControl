@@ -1,3 +1,5 @@
 module Components
 
 LED 1.0 LED.qml
+FormComponent 1.0 FormComponent.qml
+CustomGroupBox 1.0 CustomGroupBox.qml

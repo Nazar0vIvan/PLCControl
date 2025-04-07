@@ -18,13 +18,16 @@ Window {
     id: mainLayout
 
     anchors.fill: parent
+    anchors.topMargin: 20
 
-    Rectangle {
+    CustomGroupBox {
       id: leds
 
-      Layout.fillWidth: true; Layout.fillHeight: true;
-      color: "transparent"
-      border{ width: 1; color: "red" }
+      Layout.preferredHeight: 300
+      Layout.preferredWidth: 600
+      Layout.alignment: Qt.AlignTop
+      Layout.margins: 10
+      groupBoxTitle: "Panel"
 
       GridLayout {
         id: grid
@@ -32,75 +35,87 @@ Window {
         anchors.fill: parent
         columns: 3
         rows: 2
-//        columnSpacing: 20
-//        rowSpacing: 20
+        columnSpacing: 20
+        rowSpacing: 20
 
         LED {
           id: led_power
+          Layout.preferredWidth: 100; Layout.preferredHeight: 100
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           Layout.row: 0
           Layout.column: 0
           color: "yellow"
           labelText: "POWER"
-          width: 100; height: 100
+
         }
         LED {
           id: led_run
+          Layout.preferredWidth: 100; Layout.preferredHeight: 100
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           Layout.row: 0
           Layout.column: 1
           labelText: "RUN"
           color: "green"
-          width: 100; height: 100
         }
         LED {
           id: led_r1
+          Layout.preferredWidth: 70; Layout.preferredHeight: 70
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           Layout.row: 1
           Layout.column: 0
           color: "red"
           labelText: "R1"
-          width: 70; height: 70
         }
         LED {
           id: led_r2
+          Layout.preferredWidth: 70; Layout.preferredHeight: 70
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           color: "red"
           Layout.row: 1
           Layout.column: 1
           labelText: "R2"
-          width: 70; height: 70
         }
         LED {
           id: led_r3
+          Layout.preferredWidth: 70; Layout.preferredHeight: 70
           Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
           Layout.row: 1
           Layout.column: 2
           color: "red"
           labelText: "R3"
-          width: 70; height: 70
         }
       }
+
     }
 
-    Component.onCompleted: {
-        grid.forceLayout(); // Force layout update when components are ready
+    CustomGroupBox {
+      id: control
+
+      Layout.preferredHeight: 300
+      Layout.preferredWidth: 600
+      Layout.margins: 10
+      Layout.alignment: Qt.AlignTop
+      groupBoxTitle: "Controls"
+
+
+      ColumnLayout {
+        id: controlLayout
+
+        anchors.fill: parent
+        anchors.margins: 10
+
+        Button {
+          Layout.alignment: Qt.AlignTop
+          text: "Connect"
+        }
+        Button {
+          Layout.alignment: Qt.AlignTop
+          text: "Turn ON R1"
+        }
+     }
     }
 
-//    GroupBox {
-//      id: control
-
-//     // Layout.fillWidth: true; Layout.fillHeight: true;
-//      ColumnLayout {
-//        id: controlLayout
-
-//        anchors.fill: parent
-
-//        Button {
-//          text: "Connect"
-//        }
-//      }
-//    }
+    Item { Layout.fillHeight: true }
 
   }
 }

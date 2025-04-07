@@ -609,7 +609,9 @@ qrc_modules.cpp: ../../modules.qrc \
 		../../../../6.5.3/gcc_64/libexec/rcc \
 		../../Modules/AppStyles/Styles.qml \
 		../../Modules/AppStyles/qmldir \
+		../../Modules/Components/FormComponent.qml \
 		../../Modules/Components/LED.qml \
+		../../Modules/Components/CustomGroupBox.qml \
 		../../Modules/Components/qmldir
 	/home/boroda/Qt/6.5.3/gcc_64/libexec/rcc -name modules --no-zstd ../../modules.qrc -o qrc_modules.cpp
 
